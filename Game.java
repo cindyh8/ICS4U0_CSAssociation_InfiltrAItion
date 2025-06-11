@@ -70,6 +70,7 @@ public class Game {
                   name.setVisible(true);
                
                } catch (Exception e) {
+                System.out.println("Thread was interrupted: " + e.getMessage());
                }
             }
          });
