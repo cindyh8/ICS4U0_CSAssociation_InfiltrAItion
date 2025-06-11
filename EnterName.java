@@ -1,7 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-
 /**
  * Screen for entering player name at the start of the game.
  * <p>
@@ -17,7 +13,11 @@ import java.awt.event.*;
  * @version final
  * @author Your Name
  */
- 
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
 public class EnterName extends JFrame implements KeyListener {
 
    /** Stores the player's name as it's being typed */
