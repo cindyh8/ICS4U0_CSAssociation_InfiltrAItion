@@ -78,7 +78,7 @@ public class IntroScenes extends JFrame {
                   setVisible(false);
                
                } catch (InterruptedException e) {
-               //silent interruption handling
+                System.out.println("Intro thread interrupted: " + e.getMessage());
                }
             }
          });
