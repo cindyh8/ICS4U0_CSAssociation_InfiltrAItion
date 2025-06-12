@@ -18,8 +18,8 @@
  * <h2>Course Info:</h2>
  * ICS4U0, Ms. Krasteva
  *
- * @version 1.0
- * @author Your Name
+ * @version final
+ * @author Cindy He, Sarah Chong
  */
 
 import javax.swing.*;
