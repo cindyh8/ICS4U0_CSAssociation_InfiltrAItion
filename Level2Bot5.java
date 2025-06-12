@@ -26,9 +26,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Level2Bot4 extends JFrame implements KeyListener { //incorrect bot
+public class Level2Bot4 extends JFrame implements KeyListener {
 
-//robot animation
+   /** Robot animation */
    private JLabel bot4;
    private Timer animationTimer;
    private Timer botMoveTimer;
@@ -37,11 +37,11 @@ public class Level2Bot4 extends JFrame implements KeyListener { //incorrect bot
    private final int bot4Y = 150;
    private final int targetX = 400;
    
-   //display components 
+   /** Display components */
    private JLayeredPane layeredPane;
    private JLabel sceneLabel;
    
-   //sector management
+   /** Sector management */
    private int currentSector = 11;
    private final String[] sector1;
    private final String[] sector2;
@@ -52,16 +52,16 @@ public class Level2Bot4 extends JFrame implements KeyListener { //incorrect bot
    private boolean caesarCipherOpen = false;
    private boolean phoneOpen = false;
    
-   //ui indicators
+   /** UI indicators */
    private JPanel openButtonChange;
    private JPanel closeButtonChange;
    
-   //game state
+   /** Game state */
    private boolean entryFinished = false;
    private boolean isFlickering = true;
    private boolean bot4IsSafe = false;
    
-   //phone interaction
+   /** Phone interaction */
    private JLabel phoneDisplay = new JLabel(""); 
    private StringBuilder phoneInput1 = new StringBuilder();
 
@@ -399,7 +399,7 @@ public class Level2Bot4 extends JFrame implements KeyListener { //incorrect bot
             phoneDisplay.setText(phoneInput1.toString());
          }         
          if (key == KeyEvent.VK_ENTER) {
-            if (phoneInput1.toString().equals("3759")) { //for level 2 bot 1
+            if (phoneInput1.toString().equals("3759")) {
                showSector("callbot1.png");
                Timer timer = new Timer(3000, 
                   new ActionListener() {
@@ -456,7 +456,7 @@ public class Level2Bot4 extends JFrame implements KeyListener { //incorrect bot
                               if (bot4X + bot4.getWidth() < 0) {
                                  ((Timer) e.getSource()).stop();
                                  setVisible(false);
-                                 new Level2Bot5(); //change to next lvl
+                                 new Level2Bot5();
                               }
                            }
                         });
