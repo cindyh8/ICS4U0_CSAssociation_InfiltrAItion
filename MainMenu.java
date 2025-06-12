@@ -22,7 +22,7 @@
  * ICS4U0, Ms. Krasteva
  *
  * @version final
- * @author Your Name
+ * @author Cindy He, Sarah Chong
  */
  
 import javax.swing.*;
