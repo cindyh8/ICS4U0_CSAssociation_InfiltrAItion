@@ -15,7 +15,7 @@ However, enemy spy robots are infiltrating the company by disguising themselves 
 ### Gameplay
 
 - **Level 1** – You are in a simulation, guided by senior AI assistants. This level teaches you how to properly check employees before granting them access.
-- **Level 2** – You are now operating at the real security gate. Enemy spy robots will try to slip through. Mistakes now have **real consequences**—if you let one in, CSA's critical research may be compromised.
+- **Level 2** – You are now operating at the real security gate. Enemy spy robots will try to slip through. Mistakes now have **real consequences**. If you let a enemy robot in, CSA's critical research may be compromised.
 
 The game combines **critical thinking**, **pattern recognition**, and **moral decision-making** while reinforcing awareness of how AI may shape the future.
 
