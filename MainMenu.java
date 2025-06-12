@@ -31,7 +31,7 @@ import java.awt.event.*;
 
 public class MainMenu extends JFrame implements ActionListener {
 
-   // Navigation buttons
+   /** Navigation buttons */
    private JButton instructions, level2, highscores, exit, play;
    
     /** Stores the player's name for score tracking */
@@ -82,7 +82,7 @@ public class MainMenu extends JFrame implements ActionListener {
       play.setBounds(550, 520, 300, 50);
       play.addActionListener(this);
       
-   //add components to window
+      /** Add components to window */
       background.add(instructions);
       background.add(level2);
       background.add(highscores);
