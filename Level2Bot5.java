@@ -1,12 +1,12 @@
 /**
- * Level 2 Bot 5 - a company employee
+ * Level 2 Bot 4 - representing a security threat.
  * <p>
- * This class represents the fifth bot encounter in level 2, where players must
+ * This class represents the fourth bot encounter in level 2, where players must
  * analyze and determine if the bot is safe or dangerous using various tools.
  * Players can examine different sectors of the bot, use a Caesar cipher tool,
  * or call the bot via a phone interface to gather information
  *
- * This class represents the fifth bot encounter in Level 2 of the game. It features:
+ * This class represents the fourth bot encounter in Level 2 of the game. It features:
  * <h2>Game Mechanics:</h2>
  * - Press Q/W/E to examine different bot sectors
  * - Use left/right arrows to navigate sector images
@@ -18,27 +18,26 @@
  * <h2>Course Info:</h2>
  * ICS4U0, Ms. Krasteva
  *
- * @version 1.0
- * @author Your Name
+ * @version final
+ * @author Cindy He, Sarah Chong
  */
-
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
+public class Level2Bot4 extends JFrame implements KeyListener { //incorrect bot
 
-//robot interaction
-   private JLabel bot5;
+//robot animation
+   private JLabel bot4;
    private Timer animationTimer;
    private Timer botMoveTimer;
    private boolean isBotMoving = false;
-   private int bot5X = -100;
-   private final int bot5Y = 150;
+   private int bot4X = -100;
+   private final int bot4Y = 150;
    private final int targetX = 400;
    
-   //display conponents
+   //display components 
    private JLayeredPane layeredPane;
    private JLabel sceneLabel;
    
@@ -60,15 +59,14 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
    //game state
    private boolean entryFinished = false;
    private boolean isFlickering = true;
-   private boolean bot5IsSafe = true;
+   private boolean bot4IsSafe = false;
    
    //phone interaction
    private JLabel phoneDisplay = new JLabel(""); 
    private StringBuilder phoneInput1 = new StringBuilder();
-   private JButton returnMenu;
 
    /**
-     * Constructs the Level2Bot5 game frame and initializes components.
+     * Constructs the Level2Bot4 game frame and initializes components.
      * <p>
      * Sets up:
      * <ul>
@@ -79,8 +77,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
      *   <li>Interactive button indicators</li>
      * </ul>
      */
-
-   public Level2Bot5() {
+   public Level2Bot4() {
       setSize(1000, 700);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setResizable(false);
@@ -104,14 +101,14 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       JLabel frame = new JLabel(new ImageIcon(bgImgFrame));
       frame.setBounds(0, 0, 1000, 700);
       layeredPane.add(frame, Integer.valueOf(2));
+
    
-   
-      ImageIcon bot5IconOriginal = new ImageIcon(getClass().getResource("l2c5.png"));
-      Image scaledBotImage = bot5IconOriginal.getImage().getScaledInstance(300, 250, Image.SCALE_SMOOTH);
-      ImageIcon bot5Icon = new ImageIcon(scaledBotImage);
-      bot5 = new JLabel(bot5Icon);
-      bot5.setBounds(bot5X, bot5Y, 200, 200);
-      layeredPane.add(bot5, Integer.valueOf(1));
+      ImageIcon bot4IconOriginal = new ImageIcon(getClass().getResource("l2c4.png"));
+      Image scaledBotImage = bot4IconOriginal.getImage().getScaledInstance(250, 200, Image.SCALE_SMOOTH);
+      ImageIcon bot4Icon = new ImageIcon(scaledBotImage);
+      bot4 = new JLabel(bot4Icon);
+      bot4.setBounds(bot4X, bot4Y, 200, 200);
+      layeredPane.add(bot4, Integer.valueOf(1));
    
       sceneLabel = new JLabel();
       sceneLabel.setBounds(0, 0, 1000, 700);
@@ -120,7 +117,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       phoneDisplay.setFont(new Font("Courier New", Font.BOLD, 24));
       phoneDisplay.setForeground(new Color(10, 32, 52));
       phoneDisplay.setBounds(670, 420, 200, 30); 
-      layeredPane.add(phoneDisplay, Integer.valueOf(12));  
+      layeredPane.add(phoneDisplay, Integer.valueOf(12)); 
    
       setVisible(true);
    
@@ -159,8 +156,8 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       
       entry();
    }
-
-   /**
+   
+      /**
      * Animates the bot's entry and scanning sequence.
      * <p>
      * The animation occurs in three phases:
@@ -175,7 +172,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       JLabel greenScan = new JLabel();
       greenScan.setOpaque(true);
       greenScan.setBackground(new Color(57, 255, 20)); 
-      greenScan.setBounds(bot5X, bot5Y, bot5.getWidth(), 0);
+      greenScan.setBounds(bot4X, bot4Y, bot4.getWidth(), 0);
       layeredPane.add(greenScan, Integer.valueOf(2));
    
       animationTimer = new Timer(10, 
@@ -185,17 +182,17 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
          
             public void actionPerformed(ActionEvent e) {
                if (phase == 0) {
-                  if (bot5X < targetX) {
-                     bot5X += 2;
-                     bot5.setLocation(bot5X, bot5Y);
-                     greenScan.setLocation(bot5X, bot5Y);
+                  if (bot4X < targetX) {
+                     bot4X += 2;
+                     bot4.setLocation(bot4X, bot4Y);
+                     greenScan.setLocation(bot4X, bot4Y);
                   } else {
                      phase = 1;
                   }
                } else if (phase == 1) {
-                  if (scanHeight < bot5.getHeight()) {
+                  if (scanHeight < bot4.getHeight()) {
                      scanHeight += 4;
-                     greenScan.setBounds(bot5X, bot5Y, bot5.getWidth(), scanHeight);
+                     greenScan.setBounds(bot4X, bot4Y, bot4.getWidth(), scanHeight);
                   } else {
                      phase = 2;
                      layeredPane.remove(greenScan);
@@ -211,7 +208,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
                      new Timer(3000, 
                         new ActionListener() {
                            public void actionPerformed(ActionEvent e) {
-                              ImageIcon newIcon = new ImageIcon(getClass().getResource("l2c5_info.png"));
+                              ImageIcon newIcon = new ImageIcon(getClass().getResource("l2c4_info.png"));
                               JLabel newImage = new JLabel(newIcon);
                               newImage.setBounds(0, 0, newIcon.getIconWidth(), newIcon.getIconHeight());
                               layeredPane.add(newImage, Integer.valueOf(4));
@@ -229,7 +226,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       animationTimer.start();
    }
 
-/**
+   /**
      * Handles key press events for game controls.
      * <p>
      * Controls include:
@@ -241,12 +238,11 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
      *   <li>C - Toggle phone </li>
      *   <li>R - Trigger red screen flicker effect</li>
      *   <li>0-9 - Phone number input</li>
-     *   <li>Enter - Submit phone number input</li>
+     *   <li>Enter - Submit phone input</li>
      * </ul>
      *
      * @param e The KeyEvent containing key press information
      */
-
    public void keyPressed(KeyEvent e) {
       int key = e.getKeyCode();
    
@@ -342,16 +338,14 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       if (key == KeyEvent.VK_O && entryFinished && !isBotMoving) {
          isBotMoving = true;
       
-         if (bot5IsSafe) {
+         if (bot4IsSafe) {
             MainMenu.correctGuesses++;
             System.out.println("Correct guess! Total: " + MainMenu.correctGuesses);
-            Highscores.saveScore(MainMenu.playerName, MainMenu.correctGuesses, "highscores.txt", 100);
-             
          } else {
             MainMenu.correctGuesses--;
             System.out.println("Incorrect guess! Total: " + MainMenu.correctGuesses);
-            Highscores.saveScore(MainMenu.playerName, MainMenu.correctGuesses, "highscores.txt", 100);
-            
+             Highscores.saveScore(MainMenu.playerName, MainMenu.correctGuesses, "highscores.txt", 100);
+            incorrectGuess();
          }
       
          openButtonChange.setVisible(true);
@@ -359,13 +353,11 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
          botMoveTimer = new Timer(10, 
             new ActionListener() {
                public void actionPerformed(ActionEvent e) {
-                  bot5X += 2;
-                  bot5.setLocation(bot5X, bot5Y);
-                  if (bot5X > 1000) {
+                  bot4X += 2;
+                  bot4.setLocation(bot4X, bot4Y);
+                  if (bot4X > 1000) {
                      ((Timer) e.getSource()).stop();
                      setVisible(false);
-                     new GoodWorkScreen();
-                  
                   }
                }
             });
@@ -407,12 +399,12 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
             phoneDisplay.setText(phoneInput1.toString());
          }         
          if (key == KeyEvent.VK_ENTER) {
-            if (phoneInput1.toString().equals("3759")) { //for level 2 bot 5 
+            if (phoneInput1.toString().equals("3759")) { //for level 2 bot 1
                showSector("callbot1.png");
                Timer timer = new Timer(3000, 
                   new ActionListener() {
                      public void actionPerformed(ActionEvent e) {
-                        showSector("callbot5.png");
+                        showSector("callbot4.png");
                      }
                   });
                timer.setRepeats(false);
@@ -426,7 +418,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
          }
       }  
       
-      if (key == KeyEvent.VK_R && entryFinished && !isBotMoving && isFlickering) {
+     if (key == KeyEvent.VK_R && entryFinished && !isBotMoving && isFlickering) {
          isBotMoving = true;
       
          Timer flickerTimer = new Timer(500, 
@@ -448,7 +440,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
                      sceneLabel.setIcon(null);
                      isFlickering = false;
                   
-                     if (!bot5IsSafe) {
+                     if (!bot4IsSafe) {
                         MainMenu.correctGuesses++;
                         System.out.println("Correct guess! Total: " + MainMenu.correctGuesses);
                      } else {
@@ -459,9 +451,9 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
                      Timer moveLeft = new Timer(10, 
                         new ActionListener() {
                            public void actionPerformed(ActionEvent e) {
-                              bot5X -= 2;
-                              bot5.setLocation(bot5X, bot5Y);
-                              if (bot5X + bot5.getWidth() < 0) {
+                              bot4X -= 2;
+                              bot4.setLocation(bot4X, bot4Y);
+                              if (bot4X + bot4.getWidth() < 0) {
                                  ((Timer) e.getSource()).stop();
                                  setVisible(false);
                                  new Level2Bot5(); //change to next lvl
@@ -476,12 +468,11 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       }
    }
    
-    /**
+   /**
      * Handles key release events for button visual feedback.
      *
      * @param e The KeyEvent containing key release information
      */
-
    public void keyReleased(KeyEvent e) {
    
       int key = e.getKeyCode();
@@ -494,13 +485,12 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
          closeButtonChange.setVisible(false);
       }
    }
-
+   
    /**
      * Displays the specified image in the scene view.
      *
      * @param imageName The name of the image file to display
      */
-
    private void showSector(String imageName) {
       ImageIcon icon = new ImageIcon(getClass().getResource(imageName));
       Image scaledImage = icon.getImage().getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
@@ -511,16 +501,26 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
       layeredPane.setLayer(sceneLabel, Integer.valueOf(10));
       layeredPane.repaint();
    }
-  
- /**
+   
+   /**
+     * Handles incorrect guess by stopping timers and showing game over screen.
+     */
+   private void incorrectGuess() {
+      if (animationTimer != null) animationTimer.stop();
+      if (botMoveTimer != null) botMoveTimer.stop();
+      setVisible(false);
+      dispose();
+      new GameOver();
+   }
+   
+   /**
      * Required by KeyListener interface (unused).
      *
      * @param e The KeyEvent containing key typed information
      */
-
    public void keyTyped(KeyEvent e) {}
 
    public static void main(String[] args) {
-      SwingUtilities.invokeLater(Level2Bot5::new);
+      SwingUtilities.invokeLater(Level2Bot4::new);
    }
 }
