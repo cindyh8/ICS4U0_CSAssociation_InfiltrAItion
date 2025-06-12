@@ -32,7 +32,7 @@ import java.awt.event.*;
 
 public class Level2 extends JFrame implements KeyListener {
 
-   //robot animation
+   /** Robot animation */
    private JLabel bot1;
    private Timer animationTimer;
    private Timer botMoveTimer;
@@ -41,11 +41,11 @@ public class Level2 extends JFrame implements KeyListener {
    private final int bot1Y = 150;
    private final int targetX = 400;
    
-   //layered pane
+   /** Layered pane */
    private JLayeredPane layeredPane;
    private JLabel sceneLabel;
    
-   //sector management 
+   /** Sector management */ 
    private int currentSector = 11;
    private final String[] sector1;
    private final String[] sector2;
@@ -56,16 +56,16 @@ public class Level2 extends JFrame implements KeyListener {
    private boolean caesarCipherOpen = false;
    private boolean phoneOpen = false;
    
-   //ui indicators
+   /** UI indicators */
    private JPanel openButtonChange;
    private JPanel closeButtonChange;
    
-   //game state
+   /** Game state */
    private boolean entryFinished = false;
    private boolean isFlickering = true;
    private boolean bot1IsSafe = true;
    
-   //phone input system
+   /** Phone input system */
    private JLabel phoneDisplay = new JLabel(""); 
    private StringBuilder phoneInput1 = new StringBuilder();
 
@@ -407,7 +407,7 @@ public class Level2 extends JFrame implements KeyListener {
          }   
          
          if (key == KeyEvent.VK_ENTER) {
-            if (phoneInput1.toString().equals("1728")) { // for level 2 bot 1
+            if (phoneInput1.toString().equals("1728")) {
             
                showSector("callbot1.png");
                Timer timer = new Timer(3000, 
