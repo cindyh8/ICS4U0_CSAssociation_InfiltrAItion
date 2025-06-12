@@ -47,7 +47,7 @@ private JButton returnMenu;
         JLabel label = new JLabel(new ImageIcon(scaledLoading));
         
         returnMenu = new JButton("Return to Menu");
-        returnMenu.setBounds(300, 620, 300, 50); //fix position
+        returnMenu.setBounds(300, 620, 300, 50);
         returnMenu.addActionListener(this);
         label.add(returnMenu);
         add(label);
