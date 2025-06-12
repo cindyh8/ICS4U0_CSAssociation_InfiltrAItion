@@ -18,7 +18,7 @@ import java.awt.event.*;
  * ICS4U0, Ms. Krasteva
  *
  * @version final
- * @author Your Name
+ * @author Cindy He, Sarah Chong
  */
  
 public class EnterName extends JFrame implements KeyListener {
