@@ -25,9 +25,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Level2Bot3 extends JFrame implements KeyListener { //incorrect bot
+public class Level2Bot3 extends JFrame implements KeyListener { 
 
-//robot animation
+   /** Robot animation */
    private JLabel bot3;
    private Timer animationTimer;
    private Timer botMoveTimer;
@@ -36,11 +36,11 @@ public class Level2Bot3 extends JFrame implements KeyListener { //incorrect bot
    private final int bot3Y = 150;
    private final int targetX = 400;
    
-   //display conponents 
+   /** Display conponents */ 
    private JLayeredPane layeredPane;
    private JLabel sceneLabel;
    
-   //sector management
+   /** Sector management */
    private int currentSector = 11;
    private final String[] sector1;
    private final String[] sector2;
@@ -51,16 +51,16 @@ public class Level2Bot3 extends JFrame implements KeyListener { //incorrect bot
    private boolean caesarCipherOpen = false;
    private boolean phoneOpen = false;
    
-   //ui indicators
+   /** UI indicators */
    private JPanel openButtonChange;
    private JPanel closeButtonChange;
    
-   //game state
+   /** Game state */
    private boolean entryFinished = false;
    private boolean isFlickering = true;
    private boolean bot3IsSafe = false;
    
-   //phone input system
+   /** Phone input system */
    private JLabel phoneDisplay = new JLabel(""); 
    private StringBuilder phoneInput1 = new StringBuilder();
 
@@ -391,7 +391,7 @@ public class Level2Bot3 extends JFrame implements KeyListener { //incorrect bot
             phoneDisplay.setText(phoneInput1.toString());
          }         
          if (key == KeyEvent.VK_ENTER) {
-            if (phoneInput1.toString().equals("2928")) { //for level 2 bot 3
+            if (phoneInput1.toString().equals("2928")) {
                showSector("callbot1.png");
                Timer timer = new Timer(3000, 
                   new ActionListener() {
