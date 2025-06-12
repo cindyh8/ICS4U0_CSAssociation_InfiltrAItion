@@ -27,9 +27,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
+public class Level2Bot5 extends JFrame implements KeyListener {
 
-//robot interaction
+   /** Robot interaction */
    private JLabel bot5;
    private Timer animationTimer;
    private Timer botMoveTimer;
@@ -38,11 +38,11 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
    private final int bot5Y = 150;
    private final int targetX = 400;
    
-   //display conponents
+   /** Display conponents */
    private JLayeredPane layeredPane;
    private JLabel sceneLabel;
    
-   //sector management
+   /** Sector management */
    private int currentSector = 11;
    private final String[] sector1;
    private final String[] sector2;
@@ -53,16 +53,16 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
    private boolean caesarCipherOpen = false;
    private boolean phoneOpen = false;
    
-   //ui indicators
+   /** UI indicators */
    private JPanel openButtonChange;
    private JPanel closeButtonChange;
    
-   //game state
+   /** Game state */
    private boolean entryFinished = false;
    private boolean isFlickering = true;
    private boolean bot5IsSafe = true;
    
-   //phone interaction
+   /** Phone interaction */
    private JLabel phoneDisplay = new JLabel(""); 
    private StringBuilder phoneInput1 = new StringBuilder();
    private JButton returnMenu;
@@ -407,7 +407,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
             phoneDisplay.setText(phoneInput1.toString());
          }         
          if (key == KeyEvent.VK_ENTER) {
-            if (phoneInput1.toString().equals("3759")) { //for level 2 bot 5 
+            if (phoneInput1.toString().equals("3759")) {
                showSector("callbot1.png");
                Timer timer = new Timer(3000, 
                   new ActionListener() {
@@ -464,7 +464,7 @@ public class Level2Bot5 extends JFrame implements KeyListener { //correct bot
                               if (bot5X + bot5.getWidth() < 0) {
                                  ((Timer) e.getSource()).stop();
                                  setVisible(false);
-                                 new Level2Bot5(); //change to next lvl
+                                 new Level2Bot5();
                               }
                            }
                         });
