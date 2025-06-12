@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class Level1 extends JFrame implements KeyListener {
 
-   //robot animation 
+   /** Robot animation */
    private JLabel bot1;
    private Timer animationTimer;
    private Timer botMoveTimer;
@@ -44,11 +44,11 @@ public class Level1 extends JFrame implements KeyListener {
    private final int bot1Y = 150;
    private final int targetX = 400;
    
-   //layered pane components 
+   /** Layered pane components */
    private JLayeredPane layeredPane;
    private JLabel sceneLabel;
    
-   //sector management
+   /** Sector management */
    private int currentSector = 11;
    private final String[] sector1;
    private final String[] sector2;
@@ -57,25 +57,25 @@ public class Level1 extends JFrame implements KeyListener {
    private boolean sector2open = false;
    private boolean sector3open = false;
    
-   //open and close 
+   /** Open and close */
    private boolean caesarCipherOpen = false;
    private boolean phoneOpen = false;
    
-   //scoring
+   /** Scoring */
    private int correctCount = 0;
    private int incorrectCount = 0;
    
-   //ui indicators
+   /** UI indicators */
    private JPanel openButtonChange;
    private JPanel closeButtonChange;
    
-   //intro scene components
+   /** Intro scene components */
    private ArrayList<ImageIcon> introText;
    private int introIndex = 0;
    private boolean introFinished = false;
    private JLabel introTextLabel;
    
-   //typing mask animation
+   /** Typing mask animation */
    private JPanel typingMask;
    private int maskX=0;
    private Timer typingTimer;
@@ -85,7 +85,7 @@ public class Level1 extends JFrame implements KeyListener {
    private boolean animationDone = false;
    private boolean showMask = true;
    
-   //guide robot display
+   /** Guide robot display */
    private JLabel guideRobotPointLabel;
    private JLabel caeserPointLabel;
    private JLabel callPointLabel;
@@ -138,7 +138,7 @@ public class Level1 extends JFrame implements KeyListener {
       bot1.setBounds(bot1X, bot1Y, 250, 200);
       layeredPane.add(bot1, Integer.valueOf(1));
      
-      //put all introtext into an arraylist
+      /** Puts all introtext into an arraylist. */
       introText = new ArrayList<>();
       for (int i = 1; i <=45; i++) {
      
@@ -153,7 +153,7 @@ public class Level1 extends JFrame implements KeyListener {
       introTextLabel.setBounds(0, 150, 1000, 700);
       layeredPane.add(introTextLabel, Integer.valueOf(6));
      
-      //guide robots
+      /** Guide robots */
       ImageIcon guideIcon = new ImageIcon(getClass().getResource("infoPoint.png"));
       Image guideImage = guideIcon.getImage().getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
       guideRobotPointLabel = new JLabel(new ImageIcon(guideImage));
@@ -183,7 +183,7 @@ public class Level1 extends JFrame implements KeyListener {
       layeredPane.add(comparePointLabel, Integer.valueOf(10));
    
    
-   //typing masks
+      /** Typing masks */
       typingMask = new JPanel();
       typingMask.setBackground(new Color(175, 219, 225));
       typingMask.setBounds(150, 450, 0, 100);
@@ -525,7 +525,7 @@ public class Level1 extends JFrame implements KeyListener {
 
       }
    
-    //reset mask
+      /** Reset mask */
       maskX = 0;
       maskX2=0;
       typingMask.setBounds(350, 450, 488, 30);
@@ -536,22 +536,21 @@ public class Level1 extends JFrame implements KeyListener {
    
       animationDone = false;
    
-    //check robot entry
+      /** Check robot entry */
       if (introIndex == 8) {
          triggerRobotEntry();
       }
      
-   //scans and displays scan
+      /** Scans and displays the scan */
       if (introIndex == 10){
          entry();
       }
      
-   //displays first image, of guide robot showing the scan screen
+      /** Displays first image, of guide robot showing the scan screen */
       if (introIndex == 12) { // text13 appears
          introTextLabel.setVisible(false);
          typingMask.setVisible(false);
          typingMask2.setVisible(false);
-         //showMask=false;
          showRobotTransition("infoPoint.png",12);  
       }
    
@@ -590,7 +589,7 @@ public class Level1 extends JFrame implements KeyListener {
       final int textStartX = 350;
       final int maskWidth = 488;  
    
-      maskX = 0; // hide in left start when
+      maskX = 0;
       typingMask.setBackground(new Color(175, 219, 225));
       typingMask.setVisible(true);
    
@@ -614,7 +613,7 @@ public class Level1 extends JFrame implements KeyListener {
                   startTypingMask2();
                }
            
-            //stop when completely past the text
+               /** Stop when completely past the text */
                if (maskX >= 710) {
                   typingTimer.stop();
                   animationDone = true;
@@ -701,7 +700,7 @@ public class Level1 extends JFrame implements KeyListener {
      * Shows a guide robot transition screen.
      *
      * @param robotImagePath The image file for the guide robot
-     * @param nextTextIndex The next text index to show after transition
+     * @param nextTextIndex The next text index to show after the transition
      */
    private void showRobotTransition(String robotImagePath, int nextTextIndex) {
       showMask = false;
