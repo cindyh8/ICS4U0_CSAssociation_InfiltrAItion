@@ -2,7 +2,7 @@
 
 ## Description
 
-**InfiltrAItion** is a Java-based interactive game designed to help players, especially those aged 12 to 16, explore and understand the challenges and advantages of living in a future world ruled by Artificial Intelligence.
+**InfiltrAItion** is a Java-based interactive game designed to help players, especially those aged 8 to 16, explore and understand the challenges and advantages of living in a future world ruled by Artificial Intelligence.
 
 Built using **Java Swing**, the game features animated levels, interactive UI elements, score tracking, and a highscore system saved to a file.
 
